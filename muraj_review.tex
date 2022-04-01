@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+
+\input{packages}
+\graphicspath{
+    {./figures/}
+}
+\usepackage{lineno}
+
+\begin{document}
+
+%\maketitle
+\begin{titlepage}
+\vspace*{\stretch{1.0}}
+\begin{center}
+
+\Large{\textbf{Utilizing the Hamiltonian dynamics to study resonant interactions
+of whistler-mode waves and electrons in the solar wind}} \\
+\vspace{2.5cm}
+\vspace{2.5cm}
+\begin{abstract}
+    To study the interaction of solar wind electrons and large-amplitude
+    whister waves, a vectorized test particle simulation was developed with a 
+    variational component to calculate the Lyapunov exponents. A description of 
+    particle dynamics using the Hamiltonian formulation and secular 
+    perturbation theory confirmed that the electron's pitch angle diffusion was 
+    along the constant Hamiltonian surface and that it was driven by the 
+    interaction with the resonance surfaces. Also, the role of large-amplitude
+    whistlers in the scattering of solar wind electrons was established. Oblique
+    whistlers were shown to be able to efficiently scatter field-aligned strahl
+    electrons into the halo population in the solar wind. These waves were 
+    capable of generating horn-like features in the velocity distribution 
+    function, consistent with the behavior reported in recent PIC studies.
+\end{abstract}
+
+\vspace{2.5cm}
+
+\end{center}
+\vspace*{\stretch{2.0}}
+\end{titlepage}
+
+\newpage
+
+\singlespacing
+\tableofcontents
+\doublespacing
+
+\newpage
+\linenumbers
+\section{Introduction}\label{sec:intro}
+\input{chapters/introduction/intro}
+
+\section{Theory}\label{sec:theory}
+\input{chapters/theory/whistler_fields}
+\input{chapters/theory/particle_dynamics}
+\input{chapters/theory/resonance_surfaces}
+
+\section{Simulation}\label{sec:simulation}
+\input{chapters/simulation/particle_advance}
+\input{chapters/simulation/lyapunov_exponents}
+
+\section{Diagnostics}\label{sec:diagnostics}
+\input{chapters/diagnostics/simulation_parameters}
+\input{chapters/diagnostics/lyapunov_exponents}
+
+\section{Analysis}\label{sec:analysis}
+\input{chapters/analysis/analysis}
+
+\input{chapters/conclusion/conclusions}
+
+
+\newpage
+\appendix
+\appendixpage
+
+\input{chapters/appendix/theorems}
+\input{chapters/appendix/hamiltonian_eom}
+\input{chapters/appendix/H_R_surfaces}
+\input{chapters/appendix/expansion_operator}
+%\input{chapters/appendix/VDF_figures}
+
+
+\newpage
+\bibliographystyle{aasjournal}
+\bibliography{references}
+
+\end{document}

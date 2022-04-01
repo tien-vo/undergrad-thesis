@@ -1,0 +1,67 @@
+\subsection{Particle advance}
+The Hamiltonian equation of motion in \cref{eq:hamiltonian_eom}, although useful
+for analysis, is only an approximation near a single resonance. \cite{Roth1999}
+alternated between that and the exact Lorentz force to reduce the computational cost for particles entering resonance, since adaptive RK of the 4th order is
+expensive. However, in doing so, the code user must impose an arbitrary boundary
+in switching between the resonant and non-resonant regimes. Here, we shall use
+the relativistic Boris pusher from \cite{Ripperda2018} to solve for the full
+Lorentz force and rely on its volume-preserving characteristics to choose the
+appropriate step size. However, we must first describe our normalizations. From
+\cref{sec:whistler}, it is natural to normalize $\vb{B}\to\vb{B}/B_0$ and
+subsequently $\vb{E}\to \vb{E}/cB_0$. Since we are using relativistic
+formulations, $\vb{v}\to\vb{v}/c$ and $\vb{P}\to\vb{P}/mc$. The characteristic
+frequency in our system is defined by the electron cyclotron frequency
+$\Omega_{ce}$, so the wave frequency $\omega\to\omega/\Omega_{ce}$ and time
+$t\to t\Omega_{ce}$. The spatial position thus becomes $\vb{r}\to\vb{r}\Omega_{ce}/c$.
+
+The description of the Boris algorithm is as follows. The Lorentz force in
+natural units has the form $d\vb{u}/dt=s\qty(\vb{E}+\vb{v}\times\vb{B})$ where
+$\vb{u}=\gamma\vb{v}$ and $\gamma=\sqrt{1+u^2}$. The time-centered finite difference expression of this is
+\begin{equation}
+ \vb{u}_{n+1}-\vb{u}_n=s\Delta
+t\qty[\vb{E}_n+\qty(1/2\gamma_n)\qty(\vb{u}_{n+1}+\vb{u}_n)\times\vb{B}_n]
+\end{equation}
+ where $\vb{u}_n=\gamma_n\vb{v}\qty(t_n-\Delta t/2)$, $\vb{E}_n=\vb{E}_n(t_n)$,
+$\vb{B}_n=\vb{B}_n\qty(t_n)$ and $\Delta t$ is the step size where
+$t_n=n\Delta t$ for $n\in\N$. $\gamma_n$ is the Lorentz factor determined from
+$u_n$. Now, the Kick-Drift-Kick steps that make this algorithm a leapfrog scheme
+are defined via the two auxilliary vectors $\vb{u}_\pm$. The first kick is a
+half electric field acceleration from $\vb{u}_n$ to $\vb{u}_-=\vb{u}_n+(s\Delta
+t/2)\vb{E}_n$, followed by a rotation $\vb{u}_-\to\vb{u}_+$ by the magnetic
+field $\vb{u}_+=\vb{u}_-+\qty(\Delta
+t/2\gamma_n)(\vb{u}_++\vb{u}_-)\times\vb{B}_n$. $\vb{u}_+$ here seems to be
+implicitly defined, but from the geometry of this rotation, it can be computed
+explicity as $\vb{u}_+=\vb{u}_-+\qty(\vb{u}_-+\vb{u}_-\times\vb{T})\times\vb{S}$
+with $\vb{T}=\qty(s\Delta t/2\gamma_n)\vb{B}_n$ and $\vb{S}=2\vb{T}/(1+T^2)$
+(see more details in \cite{Birdsall&Langdon1985}). Then the second kick accelerates the particle to the next state $\vb{u}_{n+1}=\vb{u}_++\qty(s\Delta
+t/2)\vb{E}_n$.
+
+To simulate a single uniform whistler fields in natural units,
+\cref{eq:whistler_EM_fields} can be rewritten as
+\begin{equation}\label{eq:simulate_B}
+    \frac{\vb{B}_w}{B_0}=\frac{E_x^w}{cB_0}\qty[\qty(\frac{cB_x^w}{E_x^w})\sin\psi\xhat+\qty(\frac{cB_y^w}{E_x^w})\cos\psi\yhat+\qty(\frac{cB_z^w}{E_x^w})\sin\psi\zhat]
+\end{equation}
+and similarly,
+\begin{equation}\label{eq:simulate_E}
+    \frac{\vb{E}_w}{cB_0}=\frac{E_x^w}{cB_0}\qty[\cos\psi\xhat-\qty(\frac{E_y^w}{E_x^w})\sin\psi\yhat+\qty(\frac{E_z^w}{E_x^w})\cos\psi\zhat]
+\end{equation}
+Since the STEREO spacecraft only measured the whistler electric field amplitudes
+\citep{Breneman2010}, $E_x^w$ is used as
+the scaling factor. The unitless polarizations can be computed with
+\cref{eq:whistler_polarizations}. Note that the wave phase in natural units
+is $\psi=\omega\qty(N_\perp x+N_\|z-t)$, and that it is zero for particles
+starting out at the origin at $t=0$. Originally, the wave has an amplitude
+$E_{w}^0=E_x^w\sqrt{1+\qty(E_z^w/E_x^w)^2}$. So, $E_x^w$ will be chosen such
+that $E_{w}^0$ has a desired physical value. To simulate a wave packet with
+the same original wave amplitude $E_{w}^0$ and $N$ frequencies
+$\omega_j=\omega_1+(j-1)\Delta\omega$ with spacing $\Delta\omega$, the
+calculations \cref{eq:simulate_B} and \cref{eq:simulate_E} can simply be
+repeated and the total fields are $\vb{E}_w=\sum_{j=1}^N\vb{E}_{w,j}$ and
+$\vb{B}_w=\sum_{j=1}^N\vb{B}_{w,j}$.
+
+With these calculations, a description of the particle advance at each time step
+is completed. The scaling factor is calculated at the beginning of the
+simulation. So each loop involves (a) calculating new wave phase, constructing
+the total field, and advancing the particle, (b) the diagnostics, and (c)
+writing to database. (b) and (c) can be activated at different time intervals.
+

@@ -1,0 +1,35 @@
+
+\section{Conclusion}\label{sec:conclusion}
+A vectorized test particle simulation is used to study the scattering and
+energization of solar wind electrons from their interactions with single
+whistlers and whistler packets at different propagation angles and in 0.3 AU and
+1 AU background parameters. It is shown that for non-relativistic particles, 
+the interaction is mainly a diffusion in pitch angle. The particles are 
+scattered along the constant $H$ surface while interacting with the nearest 
+resonant mode. The presented results show that the final velocity distribution 
+function at 0.3 AU is consistent with observations from PSP 
+\citep{Cattell2021b,Halekas2020b} and with simulations in 
+\cite{RobergClark2019} and \cite{Micera2020} for the case of obliquely 
+propagating whistler packets. Resonant strahl electrons are scattered to a 
+higher pitch angle until they can be characterized as an isotropic halo. This verifies the theory that the origin of the halo is
+the strahl, since these waves can scatter the VDF in a short length scale. Thus,
+it explains the existence of a halo population of electrons far from the Sun at
+1 AU and the corresponding heliospheric radial decrease in strahl density. It is
+also observed that parallel waves are less efficient in isotropizing the
+electron distribution, consistent with the heat-flux study in \cite{Halekas2020b}.
+
+
+\section{Future works}\label{sec:future_works}
+
+Much of the analysis can be further extended from the basis laid out in this
+thesis using the Hamiltonian approach. The resonance widths of the
+harmonics can be calculated to determine the overlapping and their subsequent
+effects on the VDF structure. Since the derived adiabatic invariants are
+analogous to the magnetic moment for a system without the wave perturbations,
+they can be used to determine the constraints on the velocity, which describes
+the magnetic mirroring effect. More interesting physics might be revealed by
+simulations of the interaction of relativistic electrons with the large
+amplitude waves described in this thesis. This is because the small field
+assumptions of $\delta_{1,2}$ are better satisfied if the particle momentum term
+dominates in the canonical momentum. In terms of the simulation program, the
+developed code is written purely in Python and is vectorized with Python arrays, but better optimization can be achieved with true SIMD vectorization in C. This simulation program might be further developed into a full PIC code with the implementation of field solving components, in which case, a translation to C is absolutely necessary.

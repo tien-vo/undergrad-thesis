@@ -1,0 +1,33 @@
+\subsection{Resonance surfaces}\label{sec:resonance_surfaces}
+
+
+Using the dynamics we established in \cref{sec:particle_dynamics},
+we can use a tool provided by \cite{Karimabadi1990}, the resonance-diagram
+technique. The derivation steps are included in
+\cref{sec:RH_surface_derivation}. Let $H_0=\gamma-v_p(P_\|/mc)$ be the
+normalized unperturbed Hamiltonian in \cref{eq:1D_hamiltonian} where
+$v_p=1/N_\|=\omega/k_\|c$ is the normalized phase velocity and $N_\|$ the
+parallel refractive index. A constant value of $H_0$ defines a constant energy
+($H$) surface in phase space $(P_\|,P_\bot)$. In the non-relativistic limit,
+this is the equation of a circle centered around $v_p$ with $(v_\|/c-v_p)^2+v_\perp^2/c^2=\text{const}$ \citep{RobergClark2019}. In the relativistic limit, the $H$ surface is elliptic
+\begin{equation}\label{eq:constant_H_surface}
+    \frac{(v_\|-v_c)^2/c^2}{R_0/(H_0^2+v_p^2)}+\frac{v_\perp^2/c^2}{R_0/H_0^2}=1
+\end{equation}
+where $v_c/c=v_p/(H_0^2+v_p^2)$ and $R_0=H_0^2-1+v_p^2/(H_0^2+v_p^2)$. We have approximated $P\approx \gamma
+mv$ (which is valid if the particle term dominates in the canonical momentum)
+and write the surface in terms of the observable $v$. Similarly, one can also
+define a resonance ($R$) surface from the resonant condition
+\cref{eq:resonant_condition}. Its intersections to the $v_\perp=0$ axis
+are
+\begin{equation}\label{eq:resonant_velocity}
+    v_{r,\|}=\frac{v_p}{1+\alpha_n^2}\pm\sqrt{\frac{\alpha_n^2}{1+\alpha_n^2}\qty(1-\frac{v_p^2}{1+\alpha_n^2})}
+\end{equation}
+where $\alpha_n=n\Omega_c/k_\|c$. The Landau resonance $(n=0)$ is located at the
+center of all $H$ surfaces and other pairs of resonance
+($n=\pm1,\pm2,\pm3,\hdots$) are equidistant to that center (see
+\cref{fig:vdf_horns} for examples from the Roberg-Clark simulation). For whistler waves, $N_\|$ is usually larger than 1, so the maximum energization is highly limited because the number of $H$--$R$ intersections are small \citep{Karimabadi1990}. Thus, particles tend to move along the constant $H$ surface until they interact resonantly with the wave near the $H$--$R$ intersection and become energized or de-energized. In subsequent sections,
+only particles in the non-relativistic energy range where $H$ is circular and
+$R$ is approximately a constant surface at $v_z=v_{r,\|}$ will be investigated. 
+In subsequent analysis, the particles' trajectories in phase space will be
+confirmed to follow this behavior.
+

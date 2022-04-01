@@ -1,0 +1,77 @@
+\subsection{Equations of whistler wave fields}\label{sec:whistler}
+
+In a cold uniform plasma with a background magnetic field
+$\vb{B}_0=B_0\zhat$, the electric
+permittivity tensor is
+\begin{equation}
+    \bm\epsilon=\epsilon_0\bm\epsilon_R=\epsilon_0\mqty(S&-iD&0\\iD&S&0\\0&0&P)
+\end{equation}
+where the constants $S,D,P$ are the Stix parameters \citep{Stix1992} given as
+follows
+\begin{equation}
+    S=1-\sum_s\frac{\omega_{ps}^2}{\omega^2-\Omega_{cs}^2}, \qquad
+    D=\sum_s\frac{\abs{q_s}}{q_s}\frac{\Omega_{cs}\omega_{ps}^2}{\omega\qty(\omega^2-\Omega_{cs}^2)},
+    \qquad P=1-\sum_s\frac{\omega_{ps}^2}{\omega^2}
+\end{equation}
+The summation is over all species $s$ with charge $q_s$, mass $m_s$, and density
+$n_s$.  The plasma frequency is $\omega_{ps}=\sqrt{n_sq_s^2/\epsilon_0m_s}$, and
+$\Omega_{cs}=\abs{q_s}B_0/m_s$ is the cyclotron frequency. Now, let there be an
+electromagnetic wave propagating in the $(xz)$ plane with
+$\vb{k}=k_\bot\xhat+k_\parallel\zhat=k\qty(\sin\theta\xhat+\cos\theta\zhat)$.
+Assume also that the fields are Fourier transformed so that $\grad\to i\vb{k}$
+and $\partial/\partial t\to-i\omega$. From Maxwell equations, the electric
+field satisfies
+$\vb{N}\times\qty(\vb{N}\times\vb{E})+\bm\epsilon_R\vdot\vb{E}=0$ where
+$\vb{N}=c\vb{k}/\omega$ is the refractive index.  This can be written in the
+form $\vb{R}\vdot\vb{E}=0$ where $\vb{R}$ satisfies
+\begin{equation}
+    \det\vb{R}=\det\mqty(
+        S-N_\parallel^2 & -iD & N_\bot N_\parallel\\
+        iD & S-N^2 & 0\\
+        N_\bot N_\parallel & 0 & P-N_\bot^2
+    )=0
+\end{equation}
+from which the refractive index can be solved. Plugging it back into
+$\vb{R}\vdot\vb{E}=0$ yields the electric field polarizations. The right-hand
+polarized solution with frequencies between $\Omega_{ci}$ and $\Omega_{ce}$ is called the whistler mode whose fields can be written in
+the form
+\begin{subequations}\label{eq:whistler_EM_fields}
+ \begin{align}
+    \vb{B}_w&=B_x^w\sin\psi\xhat + B_y^w\cos\psi\yhat + B_z^w
+    \sin\psi\zhat\label{eq:whistler_magnetic_field}\\
+    \vb{E}_w&=E_x^w\cos\psi\xhat-E_y^w\sin\psi\yhat+E_z^w\cos\psi\zhat\label{eq:whistler_electric_field}
+\end{align}
+\end{subequations}
+where the wave phase is $\psi=\vb{k}\vdot\vb{r}-\omega t$ and the magnetic field
+is given by Faraday's law $\vb{B}_w=(1/\omega)\vb{k}\times\vb{E}_w$. The
+polarizations are summarized in \cite{Tao&Bortnik2010}
+\begin{align}\label{eq:whistler_polarizations}
+    E_x^w/E_x^w&=1 &
+    E_y^w/E_x^w&=\frac{D}{N^2-S} &
+    E_z^w/E_x^w&=-\frac{N^2\sin\theta\cos\theta}{P-N^2\sin^2\theta}\notag\\
+    cB_x^w/E_x^w&=\frac{ND\cos\theta}{N^2-S} &
+    cB_y^w/E_x^w&=\frac{NP\cos\theta}{P-N^2\sin^2\theta} &
+    cB_z^w/E_x^w&=\frac{ND\sin\theta}{S-N^2}
+\end{align}
+
+For the analysis of the Hamiltonian, it is also necessary to find a scalar and
+vector potential representing the above fields. Assuming the general form for
+the whistler potentials used in \cite{Karimabadi1990} and \cite{Roth1999}, we
+can find the amplitudes such that they are consistent with
+\cref{eq:whistler_EM_fields}.  Suppose the scalar potential is
+$\Phi_w=\Phi_0\sin\psi$ and the vector potential is
+\begin{equation}\label{eq:vector_potential}
+    \vb{A}_w=A_1\qty(\frac{k_\parallel}{k})\sin\psi\xhat+A_2\cos\psi\yhat-A_1\qty(\frac{k_\bot}{k})\sin\psi\zhat
+\end{equation}
+Equating the corresponding electric field
+$\vb{E}=-\grad\Phi_w-\partial\vb{A}_w/\partial t$ to
+\cref{eq:whistler_electric_field}, we can solve for $\Phi_0,A_1$, and $A_2$ as
+follows.
+\begin{align}
+    \Phi_0&=-\frac1{k}\qty[\qty(\frac{k_\bot}{k})E_x^w+\qty(\frac{k_\parallel}{k})E_z^w]
+          &
+    A_1&=\frac1\omega\qty[\qty(\frac{k_\parallel}{k})E_x^w-\qty(\frac{k_\bot}{k})E_z^w]
+       &
+    A_2&=\frac{E_y^w}{\omega}
+\end{align}
+

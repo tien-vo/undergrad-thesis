@@ -1,0 +1,33 @@
+\section{Constant energy and resonant surfaces}\label{sec:RH_surface_derivation}
+
+In this section, we lay out the mathematical steps to derive
+\cref{eq:constant_H_surface} and \cref{eq:resonant_velocity}. The latter is
+easier to derive. The Lorentz factor at $v_\perp=0$ is
+$\gamma=\qty(1-v_\|^2/c^2)^{-1/2}$. So, multiplying the resonant
+condition in \cref{eq:resonant_condition} by $1/ck_\|$ and reorganizing yield
+\begin{equation}
+    \qty(1+\alpha_n^2)\qty(\frac{v_\|}{c})^2-2v_p\frac{v_\|}{c}+v_p^2-\alpha_n^2=0
+\end{equation}
+where $\alpha=n\Omega_c/k_\|c$ and $v_p=\omega/k_\|c$. The roots of this
+quadratic equation in $v_\|/c$  are \cref{eq:resonant_velocity}.
+
+Now, we focus on \cref{eq:constant_H_surface}. Let $H_0=\gamma-v_p(P_\|/mc)$ be
+a constant. Then we can invert it into the following form as given in
+\cite{Karimabadi1990},
+\begin{equation}
+    a_H\qty(\frac{P_\|}{mc}+\frac{b_H}{a_H})^2-\frac{P_\perp^2}{m^2c^2}=\frac{b_H^2}{a_H}+1-H_0^2
+\end{equation}
+where $a_H=v_p^2-1$ and $b_H=v_pH_0$. First, the Lorentz factor can be written
+as $\gamma=\qty(1+P_\perp^2/m^2c^2+P_\|^2/m^2c^2)^{1/2}$. Expanding the equation
+above and simplifying yield
+\begin{equation}
+    \qty(H_0+v_p\frac{P_\|}{mc})^2=\gamma^2
+\end{equation}
+Taking the square root and letting $P_\|/mc=\gamma v_\|/c$, this becomes
+$H_0/\gamma=1-v_pv_\|/c$. Now, we write
+$\gamma=\qty(1-v_\perp^2/c^2-v_\|^2/c^2)^{-1/2}$. Squaring and simplifying
+yields
+\begin{equation}
+    \qty(H_0^2+v_p^2)\qty(\frac{v_\|}{c}-\frac{v_p}{H_0^2+v_p^2})^2+H_0^2\frac{v_\perp^2}{c^2}=H_0^2-1+\frac{v_p^2}{H_0^2+v_p^2}=R_0
+\end{equation}
+This is the same as \cref{eq:constant_H_surface}. So we are done.

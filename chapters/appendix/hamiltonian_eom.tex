@@ -1,0 +1,112 @@
+\section{The Hamiltonian resonance
+analysis}\label{sec:hamiltonian_analysis}
+
+In this section, we perform two transformations to reduce the Hamiltonian in
+\cref{eq:relativistic_hamiltonian} into an integrable 1-D form, from which the
+adiabatic invariants can be calculated and the resonant condition is derived
+from the equation of motion. Assuming that the wave fields are small, we can
+write $\HH=\HH_0+\HH_1$ in a power series of $A_1$ and $A_2$ to the first order
+as follows. \begin{equation}\label{eq:Hamiltonian_original_form} \HH= \gamma
+mc^2 -\frac{qA_1}{\gamma m}\qty[\qty(\frac{k_\parallel}{k})P_x-\qty(\frac{k_\bot}{k})P_z]\sin\psi -\frac{qA_2}{\gamma m}\qty(P_y-qB_0x)\cos\psi +q\Phi_0\sin\psi \end{equation}
+where $\HH_0=\gamma mc^2$ is the Hamiltonian without the presence of any wave
+and
+\begin{equation}
+    \gamma=\sqrt{ 1 +\frac{P_x^2}{m^2c^2}
+        +\frac{(P_y-qB_0x)^2}{m^2c^2} +\frac{P_z^2}{m^2c^2} }
+\end{equation}
+is the Lorentz factor. From $\HH_0$, we can invert and
+solve for $P_x$ \begin{equation}\label{eq:simplified_px}
+P_x=\abs{q}B_0\sqrt{\frac{\HH_0^2/c^2-m^2c^2-P_z^2}{q^2B_0^2}-(x-X)^2}
+=\abs{q}B_0\sqrt{\rho^2-(x-X)^2}
+\end{equation}
+where we have written
+$X=P_y/qB_0$ and $\rho$ such that
+$\HH_0=\sqrt{m^2c^4+q^2B_0^2\rho^2c^2+P_z^2c^2}$. Now, define the action
+$J=(1/2\pi)\oint P_xdx=\abs{q}B_0\rho^2/2$,
+which is just the area of a circle with radius
+$\rho$ centered at $x=X$. Let $2\abs{q}B_0J=P_\perp^2$ and
+$P_z=P_\parallel$.  The Hamiltonian then becomes
+\begin{equation}\label{eq:x_independent_H0}
+\HH_0=\sqrt{m^2c^4+2\abs{q}B_0Jc^2+P_\parallel^2c^2}=\sqrt{m^2c^4+P_\bot^2c^2+P_\parallel^2c^2}
+\end{equation} $J$ is thus analogous to the perpendicular momentum and we can
+interpret $\rho=P_\perp/\abs{q}B_0=v_\perp/\Omega_{c}$ as the particle's
+gyroradius where $\Omega_c=\abs{q}B_0/m$ is the cyclotron frequency. \cref{eq:x_independent_H0} is now independent of the conjugate
+coordinates. Thus, if we define the new momentum as $P_\phi=J$, then it is an
+adiabatic invariant.
+
+Now, we need to find the coordinate conjugate to $P_\phi$. Define the generating function
+$F_2(x,y,z;P_\phi',P_y',P_\parallel')=\int_X^xd\overline{x}P_x(\overline{x};P_\phi',P_y')+yP_y'+zP_\parallel'$
+where new variables are denoted with a prime. The old momenta transform
+trivially as \begin{align} P_x&=\frac{\partial F_2}{\partial x}=P_x, &
+P_y&=\frac{\partial F_2}{\partial y}=P_y', & P_\parallel&=\frac{\partial
+F_2}{\partial z}=P_\parallel' \end{align} where the first equation is true due
+to the First Fundamental Theorem of Calculus. The new $z$ coordinate can also be
+found easily $z'=\partial F_2/\partial P_\parallel'=z$. Now, the coordinate
+conjugate to $P_\phi'$ is given by \begin{equation}\label{eq:phi}
+    \phi'=\frac{\partial F_2}{\partial P_\phi'}
+=\int_X^x\frac{d\overline{x}}{\sqrt{\rho^2-(\overline{x}-X)^2}}
+=\sin^{-1}\qty(\frac{x-X}{\rho}) \end{equation} Inverting, we get
+$x=X+\rho\sin\phi'$. This simplifies the momentum $P_x$ in
+\cref{eq:simplified_px} to $P_x=\abs{q}B_0\rho\cos\phi'$. Similarly, the new $y$
+coordinate is \begin{equation} y'=\frac{\partial F_2}{\partial
+    P_y'}=y+\frac1{qB_0}\frac{\partial F_2}{\partial X}
+    =y+s\frac{\partial}{\partial
+    X}\int_X^xd\overline{x}\sqrt{\rho^2-(\overline{x}-X)^2} \end{equation} Note
+    that both the integrand and the boundary are dependent on $X$. So we have to
+    use \cref{thm:leibniz_rule}
+    \begin{equation} \frac{\partial}{\partial
+        X}\int_X^xd\overline{x}\sqrt{\rho^2-(\overline{x}-X)^2}
+    =-\rho+\int_X^xd\overline{x}\frac{\overline{x}-X}{\sqrt{\rho^2-(\overline{x}-X)^2}}=-\rho\cos\phi'
+\end{equation} where $\phi'$ is found in \cref{eq:phi}. We can then invert to
+find $y=y'+s\rho\cos\phi'$. Now, we can drop the prime and write the transformed
+Hamiltonian as $\HH_0=\sqrt{m^2c^4+2\abs{q}B_0P_\phi c^2+P_\parallel^2c^2}$.
+
+Under this transformation, the perturbation $\HH_1$ become
+\begin{equation}
+    \HH_1=q\qty[\Phi_0+\frac{A_1}{\gamma}\qty(\frac{k_\bot}{k})\frac{P_\|}{m}]\sin\psi
+    -\frac{qA_1}{\gamma}\qty(\frac{k_\|}{k})\rho\Omega_c\cos\phi\sin\psi
+    +s\frac{qA_2}{\gamma}\rho\Omega_c\sin\phi\cos\psi
+\end{equation}
+where the new wave phase is $\psi=k_\bot\rho\sin\phi+k_\bot X+k_\|
+z-\omega t$. From \cref{thm:bessel_decomposition}, this Hamiltonian can be
+written in the form $\HH_1=\sum_{n\in\Z}G_n(P_\phi,P_\|)\sin\zeta_n$
+where
+\begin{equation}
+    G_n\qty(P_\phi,P_\|)=q\qty[\Phi_0+\frac{A_1}{\gamma}\qty(\frac{k_\perp}{k}\frac{P_{\|}}{m}-\frac{k_{\|}}{k}\frac{n\Omega_c}{k_\perp})]J_n\qty(k_\perp\rho)
+    +s\frac{qA_2}{\gamma}\rho\Omega_cJ_n'\qty(k_\perp\rho)
+\end{equation}
+and the phase is now $\zeta_n=n\phi+k_\perp X+k_\|z-\omega t$. Its time
+derivative is $\dot{\zeta_n}=-\omega+n\dot{\phi}+k_\|\dot{z}$. Using the
+equation of motion from $\HH_0$ and $\HH_1$, we can write
+\begin{equation}
+    \frac{d\zeta_n}{dt}=F_n+\sum_{l\in\Z}\qty(l\frac{\partial G_l}{\partial
+    P_\phi}+k_\|\frac{\partial G_l}{\partial P_\|})\sin\zeta_l
+    =F_n+\sum_{l\in\Z}\mathcal{F}_l\sin\zeta_l
+\end{equation}
+where $F_n=-\omega+n\partial\HH_0/\partial P_\phi+k_\|\partial\HH_0/\partial
+P_\|$. Recall that we have
+assumed small wave fields, i.e. $\abs{\mathcal{F}_l}\ll\abs{F_n}$. So the
+motion of $\zeta_n$ is usually fast ($|\dot{\zeta_n}|>\Omega_c$) with small
+oscillations around $F_n$. However, whenever $\abs{F_n}\to0$, this no longer holds, the particle comes into resonance with the $l=n$ mode, and $\zeta_n$ is slowly varying. Thus, $F_n$ determines the resonant condition. To analyze this in more detail, we isolate the $l=n$ mode from the infinite series since it contributes more significantly than other terms \citep{Albert2000}. To transform into the wave frame, we use the generating function $F_2(x,y,z;\hat{P_\phi},\hat{P_y},\hat{P_\zeta};t)=\phi \hat{P_\phi}+y\hat{P_y}+\qty(n\phi+k_\perp X+k_\|z-\omega t)\hat{P_\zeta}$. The new variables obey the following relations
+\begin{align}
+    \hat{\phi}&=\phi & \hat{y}&=y+k_\perp\hat{P_\|}/qB_0 & \zeta&=n\phi+k_\perp
+    X+k_\| z-\omega t\notag\\
+    \hat{P_\phi}&=P_\phi-nP_\|/k_\| &
+    \hat{P_y}&=P_y&\hat{P_\zeta}&=P_\|/k_\|
+\end{align}
+where we have omitted the subscript $n$ in $\zeta$ for simplicity. The total Hamiltonian becomes
+\begin{equation}
+    \HH(\zeta;\hat{P_\phi},\hat{P_\zeta})=\HH_0(\hat{P_\phi}+n\hat{P_\zeta},k_\|\hat{P_\zeta})-\omega\hat{P_\zeta}+G_n(\hat{P_\phi}+n\hat{P_\zeta},k_\|\hat{P_\zeta})\sin\zeta
+\end{equation}
+where $\hat{P_\phi}$ is an adiabatic invariant. Also,
+$d\hat{P_\zeta}/dt=-\partial\HH/\partial\zeta=-G_n\cos\zeta$.
+When the phase varies rapidly, we can average $\zeta$ over its period and find
+$d\hat{P_\zeta}/dt=0$ since $\expval{\cos\zeta}=0$. The momentum $\hat{P_\zeta}$
+is then an adiabatic invariant. However, when $\dot\zeta$ is slow, $P_\zeta$ is
+no longer conserved and undergoes irreversible changes. As mentioned above, this
+happens when
+\begin{equation}
+    -\omega+n\frac{\partial\HH_0}{\partial
+    P_\phi}+k_\|\frac{\partial\HH_0}{\partial P_\|}
+    =-\omega+\frac{n\Omega_c}{\gamma}+\frac{k_\|P_\|}{\gamma m}=0
+\end{equation}

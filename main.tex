@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+
+\input{packages}
+\graphicspath{
+    {./figures/}
+}
+
+%\backgroundsetup{
+%  position=current page.east,
+%  angle=-90,
+%  nodeanchor=east,
+%  vshift=-5mm,
+%  opacity=1,
+%  scale=3,
+%  contents=Draft
+%}
+
+
+\begin{document}
+
+%\maketitle
+
+
+%\thispagestyle{empty}
+\begin{titlepage}
+\vspace*{\stretch{1.0}}
+\begin{center}
+
+\Large{\textbf{Utilizing the Hamiltonian dynamics to study resonant interactions
+of whistler-mode waves and electrons in the solar wind}} \\
+\vspace{2.5cm}
+\large{Tien Vo} \\
+\vspace{2.5cm}
+Submitted under the supervision of Professor Cynthia Cattell and Professor
+Robert Lysak to the University Honors Program at the University of
+Minnesota--Twin Cities in partial fulfillment of the requirements for the degree
+of Bachelor of Science, summa cum laude in Physics. \\
+\vspace{2.5cm}
+\today
+
+\end{center}
+\vspace*{\stretch{2.0}}
+\end{titlepage}
+
+\newpage
+\section*{Acknowledgements}
+
+First and foremost, I thank Professor Cattell for having encouraged me to
+explore the multiple aspects of this project. With her assistance and advice, I
+have grown as a researcher from having the freedom to utilize my interests in
+math, computation, and physics. Second, I thank Professor Lysak for his help in
+the derivations of the once very intimidating math in this thesis. I
+would also like to thank Dr. Vadim Roytershteyn for the insightful
+conversations about PIC simulations, which greatly helped shape my code.
+I thank Aaron West for his great contributions to the research. And finally, I thank my family for their love and support of my academic pursuit. This thesis owes its existence to their belief in me.
+
+The Minnesota Supercomputing Institute (MSI) at the University of Minnesota
+provided the resources that contributed to the research results reported with
+this thesis. (URL: https://www.msi.umn.edu).
+
+
+\newpage
+
+\begin{abstract}
+    The role of large amplitude whistler waves in the energization and
+    scattering of solar wind electrons has long been an interesting problem in
+    Space Physics. To study this wave-particle interaction, we developed a
+    vectorized test particle simulation with a variational calculation of the
+    Lyapunov exponents. From using secular perturbation theory on this
+    Hamiltonian system of wave and particle, we confirmed that the pitch angle
+    diffusion of the particle was along the constant Hamiltonian surface and
+    that it was driven by the interaction with the resonance surfaces. We also
+    showed that oblique whistlers could efficiently scatter field-aligned strahl
+    electrons into the halo population in the solar wind. We demonstrated
+    through simulation that these waves were capable of generating horn-like
+    features in the velocity distribution function, similar to recent PIC
+    simulation results in the literature.
+\end{abstract}
+
+\newpage
+
+\singlespacing
+\tableofcontents
+\doublespacing
+
+
+\newpage
+\section{Introduction}\label{sec:intro}
+\input{chapters/introduction/intro}
+
+\section{Theory}\label{sec:theory}
+\input{chapters/theory/whistler_fields}
+\input{chapters/theory/particle_dynamics}
+\input{chapters/theory/resonance_surfaces}
+
+\section{Simulation}\label{sec:simulation}
+\input{chapters/simulation/particle_advance}
+\input{chapters/simulation/lyapunov_exponents}
+
+\section{Diagnostics}\label{sec:diagnostics}
+\input{chapters/diagnostics/simulation_parameters}
+\input{chapters/diagnostics/lyapunov_exponents}
+
+\section{Analysis}\label{sec:analysis}
+\input{chapters/analysis/analysis}
+
+\input{chapters/conclusion/conclusions}
+
+
+\newpage
+\appendix
+\appendixpage
+
+\input{chapters/appendix/theorems}
+\input{chapters/appendix/hamiltonian_eom}
+\input{chapters/appendix/H_R_surfaces}
+\input{chapters/appendix/expansion_operator}
+%\input{chapters/appendix/VDF_figures}
+
+
+\newpage
+\bibliographystyle{aasjournal}
+\bibliography{references}
+
+\end{document}

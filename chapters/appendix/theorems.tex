@@ -1,0 +1,28 @@
+\section{Useful mathematical theorems}
+
+\begin{theorem}[Leibniz's integral rule]\label{thm:leibniz_rule}
+    Given a bounded domain $I\subseteq\R$ with bounded boundaries $a(x),b(x)$
+    defined on $I$, let $f(x,t)$ be a $C^1$ smooth function on
+    $I\times\qty[a(x),b(x)]$. Also, suppose $a,b$ are $C^1$ smooth. Then for
+    $x\in I$,
+    \begin{equation}
+        \frac{d}{dx}\qty(\int_{a(x)}^{b(x)}f(x,t)dt)=f(x,b(x))\cdot
+        \frac{db(x)}{dx}-f(x,a(x))\cdot\frac{da(x)}{dx}+\int_{a(x)}^{b(x)}\frac{\partial
+        f(x,t)}{\partial x}dt
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}[Bessel decomposition]\label{thm:bessel_decomposition}
+    For $x\in\R^+$ and $\phi,\delta\in\R$, the following sinusoidal functions
+    with oscillatory phase can be decomposed into Bessel-Fourier series
+    \begin{subequations}
+        \begin{align}
+        \sin\qty(x\sin\phi+\delta)&=\sum_{n\in\Z}J_n(x)\sin\qty(n\phi+\delta)\\
+    \cos\phi
+        \sin\qty(x\sin\phi+\delta)&=\sum_{n\in\Z}\frac{n}{x}J_n(x)\sin\qty(n\phi+\delta)\\
+        \sin\phi\cos\qty(x\sin\phi+\delta)&=\sum_{n\in\Z}J_n'(x)\sin\qty(n\phi+\delta)
+        \end{align}
+    \end{subequations}
+    where $J_n(x)$ are the $n$th order Bessel functions of the first kind and
+    $J_n'(x)$ are their first order derivative.
+\end{theorem}
